@@ -101,10 +101,10 @@ Third button lets you scroll through topics -->
   <tr>
     <td><button onclick="myFunctionA()" class="dropbtn">Press Play</button>
       <div id="myDropdownA" class="dropdown-content">
-  <a href="..playlistmusic/heroes1.html" target="_blank">Heroes Might</a>
-  <a href="..playlistmusic/alan.html" target="_blank">Red Cliff alan</a>
-  <a href="..playlistmusic/classical.html" target="_blank">Classical</a>
-  <a href="..audioforhtml/studyandfocus.mp3" target="_blank">Study-Focus</a>
+  <a href="REPLACEDDesktop/playlistmusic/heroes1.html" target="_blank">Heroes Might</a>
+  <a href="REPLACEDDesktop/playlistmusic/alan.html" target="_blank">Red Cliff alan</a>
+  <a href="REPLACEDDesktop/playlistmusic/classical.html" target="_blank">Classical</a>
+  <a href="REPLACEDDesktop/audioforhtml/studyandfocus.mp3" target="_blank">Study-Focus</a>
   <a href="https://www.youtube.com/watch?v=HAoP2k1Y8Sk&list=PLTM3OGPCnb3zikvbsghS1qE6J_Q01HFPf&index=2" target="_blank">Dance</a>
   <a href="https://www.youtube.com/watch?v=Y1MrZUmMpZM" target="_blank">Japan Samurai</a>
   <a href="https://www.youtube.com/watch?v=CWzrABouyeE" target="_blank">Louis Armstrong</a>
@@ -113,42 +113,45 @@ Third button lets you scroll through topics -->
 </div>
       <br>
       <br>
-      <button onclick="myFunction()" class="dropbtn">Practice</button>
-      <div id="myDropdown" class="dropdown-content">
-    <a href="..tiddlywiki/rprogramming.html" target="_blank">R programming</a>
-    <a href="..chinese/biblechinese.html" target="_blank">Chinese</a>
-    <a href="..chinese/math.html" target="_blank">Mathematics</a>
-  </div><br>
-  <br>    <button onclick="myFunction2()" class="dropbtn">Write</button>
-  <div id="myDropdown2" class="dropdown-content">
-<a href="..tiddlywiki/toConversate.html" target="_blank">To: Conversate</a>
-<a href="..tiddlywiki/toReflect.html" target="_blank">To: Reflect</a>
-<a href="..tiddlywiki/toRead.html" target="_blank">To: Read</a></div>
-  <br>
 
 </td>
   <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td><textarea id="Textarea1" rows="6" cols="100" style="font-size:12pt"></textarea></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><textarea id="Textarea1" rows="6" cols="50" style="font-size:12pt"></textarea></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td><p id="demo2"></p><p id="demo3"></p><p id="demo4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reset in 60s</p><p id="demo5" class="hidden">first</p><p id="demo6" class="hidden">first</p><p id="demo7" class="hidden">first</p></td></tr>
 
 
 <tr>
-<td></td>  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td><td><input id="inputFileNameToSaveAs" style="display: none;"></input>Textarea1: <button onclick="saveTextAsFile()">Save file</button> ..Desktop/01homepage - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ->   </td>
+<td></td>  <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</td><td><input id="inputFileNameToSaveAs" style="display: none;"></input>Textarea1: <button id="transfertextinput">Transfer</button> ..Desktop/01homepage - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ->   </td>
 <td></td>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="transfertextinput">Transfer</button></td>
 </tr>
 <tr>
   <td>
     <button onclick="myFunction3()" class="dropbtn">Mindmaps</button><br>
       <div id="myDropdown3" class="dropdown-content">
-      <button id="toreflectinput">ToReflect</button>
+      <button id="toreflectinput">To Reflect</button>
+      <button id="toreadinput">To Read</button>
+      <button id="toconversateinput">To Conversate</button>
+      <button id="tocodeinput">To Code</button>
+      <button id="toorganizeinput">To Organize</button>
     </div>
-  <br>
+  <br>    <button onclick="myFunction2()" class="dropbtn">Write To:</button>
+  <div id="myDropdown2" class="dropdown-content">
+<a href="REPLACEDDesktop/tiddlywiki/toConversate.html" target="_blank">To: Conversate</a>
+<a href="REPLACEDDesktop/tiddlywiki/toReflect.html" target="_blank">To: Reflect</a>
+<a href="REPLACEDDesktop/tiddlywiki/toRead.html" target="_blank">To: Read</a>
+<a href="REPLACEDDesktop/tiddlywiki/toOrganize.html" target="_blank">To: Organize</a></div>
+  <br><br>
+  <button onclick="myFunction()" class="dropbtn">Practice</button>
+  <div id="myDropdown" class="dropdown-content">
+<a href="REPLACEDDesktop/tiddlywiki/rprogramming.html" target="_blank">R programming</a>
+<a href="REPLACEDDesktop/chinese/biblechinese.html" target="_blank">Chinese</a>
+<a href="REPLACEDDesktop/chinese/math.html" target="_blank">Mathematics</a>
+</div><br><br>
   <button onclick="myFunctionB()" class="dropbtn">Work</button><br>
         <div id="myDropdownB" class="dropdown-content">
         <button id="workoneinput">Main work</button>
       </div><br>
-  <button onclick="myFunction5()" class="dropbtn"> Links</button><br>
+  <button onclick="myFunction5()" class="dropbtn">External</button><br>
   <div id="myDropdown5" class="dropdown-content">
   <a href="https://www.udemy.com/" target="_blank">Udemy</a>
 </div>
@@ -157,6 +160,9 @@ Third button lets you scroll through topics -->
   <div id="myDropdown9" class="dropdown-content">
   <button id="articleoneinput">1</button>
   <button id="articletwoinput">2</button>
+  <button id="articlethreeinput">3</button>
+  <button id="articlefourinput">4</button>
+
   </div>
   <br>
   <button onclick="myFunction8()" class="dropbtn">Images</button>
@@ -168,7 +174,7 @@ Third button lets you scroll through topics -->
   </div>
   <br>
   <br>
-  <button onclick="myFunction1()" class="dropbtn">Colors Show</button>
+  <button onclick="myFunction1()" class="dropbtn">Colors Movie</button>
   <div id="myDropdown1" class="dropdown-content">
       <button id="resetshowinput">Counter:first</button>
   <button id="shiftdarkerinput">random</button>
@@ -177,22 +183,32 @@ Third button lets you scroll through topics -->
   </div>
   <br>
   <br>
+  <button onclick="myFunctionC()" class="dropbtn">5 Colors</button>
+  <div id="myDropdownC" class="dropdown-content">
+      <button id="5ColorsRedinput">Red</button>
+  <button id="5ColorsYellowinput">Yellow</button>
+  <button id="5ColorsBlueinput">Blue</button>
+  <button id="5ColorsPurpleinput">Purple</button>
+  <button id="5ColorsOrangeinput">Orange</button>
+  </div>
+  <br>
   <button id="randomPickInput" class="graybox">Random Color Pick</button>
   <br><br><form>
-  <input type="text" class="txt">
+  <input type="text" class="txt" style="display: none;">
   <div>
+    <button id="moveinput">Move | &#9656;</button>
   <div class="controls">
-    <button id="play" type="submit">Speak</button>
+    <button id="play" type="submit" style="display: none;">Speak</button>
   </div>
   </form>
-  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
 </td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td><textarea id="Textarea2" rows="30" cols="100" style="font-size:12pt"></textarea></td>
 <td></td>
-<td><img id="imageTarget" class="opaque" width=300px; src="..01image0.jpg"></td>
+<td><img id="imageTarget" class="opaque" width=300px; src="REPLACEDDesktop/01image0.jpg"></td>
 </tr>
-<tr><td></td><td></td><td><input id="inputFileNameToSaveAs1" style="display: none;"></input> Textarea2: <input type="file" id="fileToLoad1" name="filetoloadname1">, document.getElementById("Textarea2").value</td></tr>
+<tr><td></td><td></td><td><input id="inputFileNameToSaveAs1" style="display: none;"></input> Textarea2: <input type="file" id="fileToLoad1" name="filetoloadname1"> <button onclick="saveTextAsFile()">Save file</button>, document.getElementById("Textarea2").value</td></tr>
 </table>
 </div>
 <table>
@@ -206,6 +222,7 @@ Third button lets you scroll through topics -->
 
 
 <script type="text/javascript">
+
 
 var synth = window.speechSynthesis;
 
@@ -221,7 +238,7 @@ function speak(){
     var utterThis = new SpeechSynthesisUtterance(inputTxt.value);
     utterThis.voice = voices[0];
     utterThis.pitch = 1;
-    utterThis.rate = 0.8;
+    utterThis.rate = 0.5;
     utterThis.volume = 0.3;
     synth.speak(utterThis);
   }
@@ -260,6 +277,26 @@ window.onclick = function(event) {
 
 function myFunctionB() {
     document.getElementById("myDropdownB").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+function myFunctionC() {
+    document.getElementById("myDropdownC").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -422,34 +459,10 @@ function randomPickArray () {
         }
 
 var text3 =
-`Between life and death what do you choose?
-
-“I got five to eight guys on the team with a story like Jamal’s,” says Hill. “That’s a part of the San Francisco life. When he came to this school, his dad had died, and he was like, I don’t care, F the world. But he’s stuck with it. He’s still got some growing to do, but football’s really helped Jamal.”
-
-Mission vs. San Mateo
-
 `
 
-var text4 =
-
-`Tarik Cohen sayings
-
-Speak into existence through prayer
-
-I do not consider myself an underdog, I consider myself as real as anyone else.
-
-Everyone has the same 24 hours in a day, I feel I can work as hard as anyone else, produce as much as anyone else
-
-The only thing that stops it is that there's only one person out of every high school that makes it, 2% .
-
-The thing that keeps me wanting to play is keep wanting to make plays and doubters talk keep me motivated
-
-speak into existence :  If you doubt yourself then you're saying you can't do it, then chances are that you can't do it or you're not try  at all, if you say you're going to do it either you're going to have to do it or fail doing it.
-
-How the Bears coached up Tarik Cohen after his punt return mistake in Tampa:
-
-“… I think you’ve just got to coach him as time goes on and say, ‘hey, the reason why you wouldn’t do something like that in this situation is because of this,’ or ‘this was a good play because of that.’ It’s so hard as a coach to prepare a player for every possible scenario, so you’re trying to give him general guidelines and rules to follow in the different situations he finds himself in.”  Showed him two punt returners that picked up the ball deep in their territory for a touch down.`
-
+`
+var text4 = " "
 var text5 =
 `Write to reflect
 
@@ -460,12 +473,12 @@ var text5 =
 
 00's  __Journal__
 001.   Repentance
-002.  Gifts
+002.  comfort and gifts
 003.  root of me
-004.  Woman of Lexington
+004.  Of Lexington St.
 005.  Parent's paranoia
-006.  responsibility of other people
-007.  comfort
+006.  analogies of life
+007.  friendship
 008.  uncontrollable anger
 009.  scared
 
@@ -480,78 +493,205 @@ var text5 =
 448.  First amendment and boobs
 449.  Darkness
 
-22's Media
+22's   __Media__
 221.  Athlete training videos
 222.  Expressive God, bible
 223.  News and stuff
-224.  Bears podcast
+224.  mmqb
 225.  Sunday interviews
 226.  Write rap, "if"
 227.  Solar eclipse
 228.  Football strategy
 229.  Xena the warrior princess
+`
+var text6 = ""
+var text7 =
+
+`ToRead
 
 
+00's   __Bible__
+001.   Controversy
+002.  Jesus teachings
+003.  second century manuscript
+004.  gospels
+005.  Apostle Paul
+006.  Prohesies
 
 
+44's   __Code__
+441.   Why so hard?
+`
 
+var text8 =
+`To Conversate
 
+00's
+003.  Play of Others
+
+44's
+441.  Mmqb
+442.  Bill Black
+
+22's
+221.   St. Anthony's
+222.  Programming
+223.  With D the Paranoid
+224.  Converse with God
+225.  Alan
+226.  Tom's Gift
+227.  Upcoming events
+228.  Free code camp
+
+88's  __The church__
+881.  Sunday's
+`
+var text9 =
+`Write to Code
+
+88's ___Principles___
+881.  Resetting variables
+
+`
+
+var textAB = ""
+
+var textCD =
+`To Organize
+
+88's __My Room__
+881.  To discard
+882.  To keep
+
+22's __Money__
+221.  Drain
+222.  Acceptable
+223.  Income
 
 `
 
 
-
 var toreflectbutton = document.getElementById("toreflectinput");
 toreflectbutton.addEventListener('click', function(event) {
-document.getElementById("Textarea1").value = text5;
+document.getElementById("Textarea2").value = text5;
+document.body.style.backgroundColor = "#FF0000";
         } , false)
+
+var movebutton = document.getElementById("moveinput");
+movebutton.addEventListener('click', function(event) {
+  var raretext = document.getElementById("Textarea2").value;
+  document.querySelector(".txt").value = raretext;
+  document.body.style.backgroundColor = "#FF0000";
+} , false)
+
+var toreadbutton = document.getElementById("toreadinput");
+toreadbutton.addEventListener('click', function(event) {
+document.getElementById("Textarea2").value = text7;
+document.body.style.backgroundColor = "#FF0000";
+} , false)
+
+var toconversatebutton = document.getElementById("toconversateinput");
+toconversatebutton.addEventListener('click', function(event) {
+document.getElementById("Textarea2").value = text8;
+document.body.style.backgroundColor = "#FF0000";
+} , false)
+
+var tocodebutton = document.getElementById("tocodeinput");
+tocodebutton.addEventListener('click', function(event) {
+document.getElementById("Textarea2").value = text9;
+document.body.style.backgroundColor = "#FF0000";
+} , false)
+
+var toorganizebutton = document.getElementById("toorganizeinput");
+toorganizebutton.addEventListener('click', function(event) {
+document.getElementById("Textarea2").value = textCD;
+document.body.style.backgroundColor = "#FF0000";
+} , false)
 
 var transferbutton = document.getElementById("transfertextinput");
 transferbutton.addEventListener('click', function(event) {
-  var specialtext = document.getElementById("Textarea1").value
-  document.getElementById("Textarea2").value = specialtext
+  var specialtext = document.getElementById("Textarea1").value;
+  document.getElementById("Textarea2").value = specialtext;
+  document.getElementById("Textarea1").value = "";
+
   } , false)
 
   var workonebutton = document.getElementById("workoneinput");
   workonebutton.addEventListener('click', function(event) {
-    window.open('..tiddlywiki/work.html');
+    window.open('REPLACEDDesktop/tiddlywiki/work.html');
           } , false)
 
 
 var articleonebutton = document.getElementById("articleoneinput");
 articleonebutton.addEventListener('click', function(event) {
 document.getElementById("Textarea2").value = text3;
-document.getElementById("imageTarget").src = "..01image4.jpg"
+document.getElementById("imageTarget").src = "REPLACEDDesktop/01image4.jpg"
 
         } , false)
 
 var articletwobutton = document.getElementById("articletwoinput");
 articletwobutton.addEventListener('click', function(event) {
 document.getElementById("Textarea2").value = text4;
-document.getElementById("imageTarget").src = "..01image3.jpg"
+document.getElementById("imageTarget").src = "REPLACEDDesktop/01image3.jpg"
 } , false)
 
+var articlethreebutton = document.getElementById("articlethreeinput");
+articlethreebutton.addEventListener('click', function(event) {
+document.getElementById("Textarea2").value = text6;
+document.getElementById("imageTarget").src = "REPLACEDDesktop/01image5.jpg"
+} , false)
+
+var articlefourbutton = document.getElementById("articlefourinput");
+articlefourbutton.addEventListener('click', function(event) {
+document.getElementById("Textarea2").value = textAB;
+document.getElementById("imageTarget").src = "REPLACEDDesktop/01image6.jpg"
+} , false)
 
 var zeroimagebutton = document.getElementById("zeroimageinput");
 zeroimagebutton.addEventListener('click', function(event) {
-document.getElementById("imageTarget").src = "..01image0.jpg"
+document.getElementById("imageTarget").src = "REPLACEDDesktop/01image0.jpg"
         } , false)
 
 var firstimagebutton = document.getElementById("firstimageinput");
 firstimagebutton.addEventListener('click', function(event) {
-  document.getElementById("imageTarget").src = "..01image1.jpg"
+  document.getElementById("imageTarget").src = "REPLACEDDesktop/01image1.jpg"
 } , false)
 
 var secondimagebutton = document.getElementById("secondimageinput");
 secondimagebutton.addEventListener('click', function(event) {
-  document.getElementById("imageTarget").src = "..01image2.jpg"
+  document.getElementById("imageTarget").src = "REPLACEDDesktop/01image2.jpg"
 } , false)
 
 var thirdimagebutton = document.getElementById("thirdimageinput");
 thirdimagebutton.addEventListener('click', function(event) {
-  document.getElementById("imageTarget").src = "..01image3.jpg"
+  document.getElementById("imageTarget").src = "REPLACEDDesktop/01image3.jpg"
 } , false)
 
+
+var colorsredbutton = document.getElementById("5ColorsRedinput");
+colorsredbutton.addEventListener('click', function(event) {
+  document.body.style.backgroundColor = "#FF0000";
+} , false)
+
+var colorsyellowbutton = document.getElementById("5ColorsYellowinput");
+colorsyellowbutton.addEventListener('click', function(event) {
+  document.body.style.backgroundColor = "#FFFF00";
+} , false)
+
+var colorsbluebutton = document.getElementById("5ColorsBlueinput");
+colorsbluebutton.addEventListener('click', function(event) {
+  document.body.style.backgroundColor = "#4169E1";
+} , false)
+
+var colorspurplebutton = document.getElementById("5ColorsPurpleinput");
+colorspurplebutton.addEventListener('click', function(event) {
+  document.body.style.backgroundColor = "#663399";
+} , false)
+
+var colorsorangebutton = document.getElementById("5ColorsOrangeinput");
+colorsorangebutton.addEventListener('click', function(event) {
+  document.body.style.backgroundColor = "#FFA500";
+} , false)
 
         var randompickbutton = document.getElementById("randomPickInput");
             randompickbutton.addEventListener('click', function(event) {
@@ -575,11 +715,11 @@ thirdimagebutton.addEventListener('click', function(event) {
                                                                   } , false)
 
 
-                                                                    var resetshowbutton = document.getElementById("resetshowinput");
-                                                                        resetshowbutton.addEventListener('click', function(event) {
-                                                                              document.getElementById("demo6").innerHTML ="first";
-                                                                              document.getElementById("demo7").innerHTML ="first";
-                                                                              } , false)
+var resetshowbutton = document.getElementById("resetshowinput");
+resetshowbutton.addEventListener('click', function(event) {
+document.getElementById("demo6").innerHTML ="first";
+document.getElementById("demo7").innerHTML ="first";
+  } , false)
 
                                                                               var darkerbutton = document.getElementById("shiftdarkerinput");
                                                                                   darkerbutton.addEventListener('click', function(event) {
@@ -798,7 +938,6 @@ thirdimagebutton.addEventListener('click', function(event) {
 
 
 
-
 // Write this:
 // *ofrandom1()
 
@@ -925,7 +1064,7 @@ var x = setInterval(function() {
 "inputFileNameToSaveAs"
 
 function saveTextAsFile(){
-var textToWrite = document.getElementById("Textarea1").value;
+var textToWrite = document.getElementById("Textarea2").value;
 var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
 var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
 
