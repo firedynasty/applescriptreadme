@@ -126,16 +126,16 @@ Third button lets you scroll through topics -->
     </div>
   <br>    <button onclick="myFunction2()" class="dropbtn">Write To:</button>
   <div id="myDropdown2" class="dropdown-content">
-<a href="../tiddlywiki/toConversate.html" target="_blank">To: Conversate</a>
-<a href="../tiddlywiki/toReflect.html" target="_blank">To: Reflect</a>
-<a href="../tiddlywiki/toRead.html" target="_blank">To: Read</a>
-<a href="../tiddlywiki/toOrganize.html" target="_blank">To: Organize</a></div>
+<a href="..tiddlywiki/toConversate.html" target="_blank">To: Conversate</a>
+<a href="..tiddlywiki/toReflect.html" target="_blank">To: Reflect</a>
+<a href="..tiddlywiki/toRead.html" target="_blank">To: Read</a>
+<a href="..tiddlywiki/toOrganize.html" target="_blank">To: Organize</a></div>
   <br><br>
   <button onclick="myFunction()" class="dropbtn">Practice</button>
   <div id="myDropdown" class="dropdown-content">
-<a href="../tiddlywiki/rprogramming.html" target="_blank">R programming</a>
-<a href="../chinese/biblechinese.html" target="_blank">Chinese</a>
-<a href="../chinese/math.html" target="_blank">Mathematics</a>
+<a href="..tiddlywiki/rprogramming.html" target="_blank">R programming</a>
+<a href="..chinese/biblechinese.html" target="_blank">Chinese</a>
+<a href="..chinese/math.html" target="_blank">Mathematics</a>
 </div><br><br>
   <button onclick="myFunctionB()" class="dropbtn">Work</button><br>
         <div id="myDropdownB" class="dropdown-content">
@@ -194,10 +194,10 @@ Third button lets you scroll through topics -->
   </form>
   <br><button onclick="myFunctionA()" class="dropbtn">Press Play</button>
     <div id="myDropdownA" class="dropdown-content">
-<a href="../playlistmusic/heroes1.html" target="_blank">Heroes Might</a>
-<a href="../playlistmusic/alan.html" target="_blank">Red Cliff alan</a>
-<a href="../playlistmusic/classical.html" target="_blank">Classical</a>
-<a href="../audioforhtml/studyandfocus.mp3" target="_blank">Study-Focus</a>
+<a href="..playlistmusic/heroes1.html" target="_blank">Heroes Might</a>
+<a href="..playlistmusic/alan.html" target="_blank">Red Cliff alan</a>
+<a href="..playlistmusic/classical.html" target="_blank">Classical</a>
+<a href="..audioforhtml/studyandfocus.mp3" target="_blank">Study-Focus</a>
 <a href="https://www.youtube.com/watch?v=HAoP2k1Y8Sk&list=PLTM3OGPCnb3zikvbsghS1qE6J_Q01HFPf&index=2" target="_blank">Dance</a>
 <a href="https://www.youtube.com/watch?v=Y1MrZUmMpZM" target="_blank">Japan Samurai</a>
 <a href="https://www.youtube.com/watch?v=CWzrABouyeE" target="_blank">Louis Armstrong</a>
@@ -208,7 +208,7 @@ Third button lets you scroll through topics -->
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td><textarea id="Textarea2" rows="26" cols="100" style="font-size:12pt"></textarea></td>
 <td></td>
-<td><img id="imageTarget" class="opaque" width=300px; src="../images/01image0.jpg"></td>
+<td><img id="imageTarget" class="opaque" width=300px; src="..images/01image0.jpg"></td>
 </tr>
 <tr><td></td><td></td><td><input id="inputFileNameToSaveAs1" style="display: none;"></input><input type="file" id="fileToLoad1" name="filetoloadname1"> <button onclick="saveTextAsFile()">Save file</button>, document.getElementById("Textarea2").value</td></tr>
 </table>
@@ -460,36 +460,27 @@ function randomPickArray () {
         document.body.style.backgroundColor = colorvalueArray[g];
         }
 
-var text3 =
-`
-
-`
-
-var text4 =
-`
-A
-
-`
-var text5 =
-`
-`
-var text6 =
+var articletext1 =
 `
 `
 
-var text7 =
-
-`ToRead
-
+var articletext2 =
+`
 
 
 `
+var textreflect=
+`na the warrior princess
+`
+var articletext3 =
+`
+`
 
-var text8 =
-`To Conversate
+var textread=
 
 `
-var text9 =
+`
+var textcode =
 `Write to Code
 
 88's ___Principles___
@@ -497,57 +488,55 @@ var text9 =
 
 `
 
-var textAB =
-`
-
-
-`
-
-var textCD =
+var articletext4 =
 `
 
 `
 
+var textorganize =
+`
+`
 
-var textEF =
-` "
+
+var articletext5 =
+` 
 `
 
 var toreflectbutton = document.getElementById("toreflectinput");
 toreflectbutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text5;
-document.body.style.backgroundColor = "#FF0000";
+document.getElementById("Textarea2").value = textreflect;
+document.body.style.backgroundColor = "#EC644B";
         } , false)
 
 var movebutton = document.getElementById("moveinput");
 movebutton.addEventListener('click', function(event) {
   var raretext = document.getElementById("Textarea2").value;
   document.querySelector(".txt").value = raretext;
-  document.body.style.backgroundColor = "#FF0000";
+  document.body.style.backgroundColor = "#EC644B";
 } , false)
 
 var toreadbutton = document.getElementById("toreadinput");
 toreadbutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text7;
-document.body.style.backgroundColor = "#FF0000";
+document.getElementById("Textarea2").value = textread;
+document.body.style.backgroundColor = "#EC644B";
 } , false)
 
 var toconversatebutton = document.getElementById("toconversateinput");
 toconversatebutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text8;
-document.body.style.backgroundColor = "#FF0000";
+document.getElementById("Textarea2").value = textconversate;
+document.body.style.backgroundColor = "#EC644B";
 } , false)
 
 var tocodebutton = document.getElementById("tocodeinput");
 tocodebutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text9;
-document.body.style.backgroundColor = "#FF0000";
+document.getElementById("Textarea2").value = textcode;
+document.body.style.backgroundColor = "#EC644B";
 } , false)
 
 var toorganizebutton = document.getElementById("toorganizeinput");
 toorganizebutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = textCD;
-document.body.style.backgroundColor = "#FF0000";
+document.getElementById("Textarea2").value = textorganize;
+document.body.style.backgroundColor = "#EC644B";
 } , false)
 
 var transferbutton = document.getElementById("CycleCatinput");
@@ -558,43 +547,43 @@ transferbutton.addEventListener('click', function(event) {
 
   var workonebutton = document.getElementById("workoneinput");
   workonebutton.addEventListener('click', function(event) {
-    window.open('../tiddlywiki/work.html');
+    window.open('..tiddlywiki/work.html');
           } , false)
 
 
 var articleonebutton = document.getElementById("articleoneinput");
 articleonebutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text3;
-document.getElementById("imageTarget").src = "../images/01imageA.jpg";
+document.getElementById("Textarea2").value = articletext1;
+document.getElementById("imageTarget").src = "..images/01imageA.jpg";
 document.body.style.backgroundColor = "#E9D460";
 
         } , false)
 
 var articletwobutton = document.getElementById("articletwoinput");
 articletwobutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text4;
-document.getElementById("imageTarget").src = "../images/01imageD.jpg";
+document.getElementById("Textarea2").value = articletext2;
+document.getElementById("imageTarget").src = "..images/01imageD.jpg";
 document.body.style.backgroundColor = "#E9D460";
 } , false)
 
 var articlethreebutton = document.getElementById("articlethreeinput");
 articlethreebutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = text6;
-document.getElementById("imageTarget").src = "../images/01image5.jpg";
+document.getElementById("Textarea2").value = articletext3;
+document.getElementById("imageTarget").src = "..images/01image5.jpg";
 document.body.style.backgroundColor = "#E9D460";
 } , false)
 
 var articlefourbutton = document.getElementById("articlefourinput");
 articlefourbutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = textAB;
-document.getElementById("imageTarget").src = "../images/01image6.jpg";
+document.getElementById("Textarea2").value = articletext4;
+document.getElementById("imageTarget").src = "..images/01image6.jpg";
 document.body.style.backgroundColor = "#E9D460";
 } , false)
 
 var articlefivebutton = document.getElementById("articlefiveinput");
 articlefivebutton.addEventListener('click', function(event) {
-document.getElementById("Textarea2").value = textEF;
-document.getElementById("imageTarget").src = "../images/01image7.jpg";
+document.getElementById("Textarea2").value = articletext5;
+document.getElementById("imageTarget").src = "..images/01image7.jpg";
 document.body.style.backgroundColor = "#E9D460";
 } , false)
 
@@ -602,17 +591,17 @@ document.body.style.backgroundColor = "#E9D460";
 
 var zeroimagebutton = document.getElementById("zeroimageinput");
 zeroimagebutton.addEventListener('click', function(event) {
-document.getElementById("imageTarget").src = "../Images/01image0.jpg"
+document.getElementById("imageTarget").src = "..Images/01image0.jpg"
         } , false)
 
 var firstimagebutton = document.getElementById("firstimageinput");
 firstimagebutton.addEventListener('click', function(event) {
-  document.getElementById("imageTarget").src = "../Images/04image06.jpg"
+  document.getElementById("imageTarget").src = "..Images/04image06.jpg"
 } , false)
 
 var secondimagebutton = document.getElementById("secondimageinput");
 secondimagebutton.addEventListener('click', function(event) {
-  document.getElementById("imageTarget").src = "../Images/01image2.jpg"
+  document.getElementById("imageTarget").src = "..Images/01image2.jpg"
 } , false)
 
 
@@ -860,123 +849,123 @@ else{
 function cycleimagesfunc(){
 if(document.getElementById("demo8").innerHTML==="first"){
 document.getElementById("demo8").innerHTML ="second";
-document.getElementById("imageTarget").src = "../images/02image01.jpg";
+document.getElementById("imageTarget").src = "..images/02image01.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="second"){
 document.getElementById("demo8").innerHTML ="third";
-document.getElementById("imageTarget").src = "../images/02image02.jpg";
+document.getElementById("imageTarget").src = "..images/02image02.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="third"){
 document.getElementById("demo8").innerHTML ="fourth";
-document.getElementById("imageTarget").src = "../images/02image03.jpg";
+document.getElementById("imageTarget").src = "..images/02image03.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="fourth"){
 document.getElementById("demo8").innerHTML ="fifth";
-document.getElementById("imageTarget").src = "../images/02image04.jpg";
+document.getElementById("imageTarget").src = "..images/02image04.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="fifth"){
 document.getElementById("demo8").innerHTML ="sixth";
-document.getElementById("imageTarget").src = "../images/02image05.jpg";
+document.getElementById("imageTarget").src = "..images/02image05.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="sixth"){
 document.getElementById("demo8").innerHTML ="seventh";
-document.getElementById("imageTarget").src = "../images/02image06.jpg";
+document.getElementById("imageTarget").src = "..images/02image06.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="seventh"){
 document.getElementById("demo8").innerHTML ="eighth";
-document.getElementById("imageTarget").src = "../images/02image07.jpg";
+document.getElementById("imageTarget").src = "..images/02image07.jpg";
 
 return;
 }
 if(document.getElementById("demo8").innerHTML==="eighth"){
 document.getElementById("demo8").innerHTML ="ninth";
-document.getElementById("imageTarget").src = "../images/02image08.jpg";
+document.getElementById("imageTarget").src = "..images/02image08.jpg";
 
 return;
 }
 if(document.getElementById("demo8").innerHTML==="ninth"){
 document.getElementById("demo8").innerHTML ="tenth";
-document.getElementById("imageTarget").src = "../images/02image09.jpg";
+document.getElementById("imageTarget").src = "..images/02image09.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="tenth"){
 document.getElementById("demo8").innerHTML ="eleventh";
-document.getElementById("imageTarget").src = "../images/04image01.jpg";
+document.getElementById("imageTarget").src = "..images/04image01.jpg";
 
 return;
 }
 if(document.getElementById("demo8").innerHTML==="eleventh"){
 document.getElementById("demo8").innerHTML ="twelvth";
-document.getElementById("imageTarget").src = "../images/04image02.jpg";
+document.getElementById("imageTarget").src = "..images/04image02.jpg";
 
 return;
 }
 if(document.getElementById("demo8").innerHTML==="twelvth"){
 document.getElementById("demo8").innerHTML ="thirteenth";
-document.getElementById("imageTarget").src = "../images/04image03.jpg";
+document.getElementById("imageTarget").src = "..images/04image03.jpg";
 
 return;
 }
 if(document.getElementById("demo8").innerHTML==="thirteenth"){
 document.getElementById("demo8").innerHTML ="fourteenth";
-document.getElementById("imageTarget").src = "../images/04image04.jpg";
+document.getElementById("imageTarget").src = "..images/04image04.jpg";
 
 return;
 }
 if(document.getElementById("demo8").innerHTML==="fourteenth"){
 document.getElementById("demo8").innerHTML ="fifteenth";
-document.getElementById("imageTarget").src = "../images/04image05.jpg";
+document.getElementById("imageTarget").src = "..images/04image05.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="fifteenth"){
 document.getElementById("demo8").innerHTML ="sixteenth";
-document.getElementById("imageTarget").src = "../images/05image01.jpg";
+document.getElementById("imageTarget").src = "..images/05image01.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="sixteenth"){
 document.getElementById("demo8").innerHTML ="seventeenth";
-document.getElementById("imageTarget").src = "../images/05image02.jpg";
+document.getElementById("imageTarget").src = "..images/05image02.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="seventeenth"){
 document.getElementById("demo8").innerHTML ="eighteenth";
-document.getElementById("imageTarget").src = "../images/05image03.jpg";
+document.getElementById("imageTarget").src = "..images/05image03.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="eighteenth"){
 document.getElementById("demo8").innerHTML ="nineteenth";
-document.getElementById("imageTarget").src = "../images/05image04.jpg";
+document.getElementById("imageTarget").src = "..images/05image04.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="nineteenth"){
 document.getElementById("demo8").innerHTML ="twentyth";
-document.getElementById("imageTarget").src = "../images/05image05.jpg";
+document.getElementById("imageTarget").src = "..images/05image05.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="twentyth"){
 document.getElementById("demo8").innerHTML ="twentyfirst";
-document.getElementById("imageTarget").src = "../images/05image06.jpg";
+document.getElementById("imageTarget").src = "..images/05image06.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="twentyfirst"){
 document.getElementById("demo8").innerHTML ="twentysecond";
-document.getElementById("imageTarget").src = "../images/05image07.jpg";
+document.getElementById("imageTarget").src = "..images/05image07.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="twentysecond"){
 document.getElementById("demo8").innerHTML ="twentythird";
-document.getElementById("imageTarget").src = "../images/05image08.jpg";
+document.getElementById("imageTarget").src = "..images/05image08.jpg";
 return;
 }
 if(document.getElementById("demo8").innerHTML==="twentythird"){
 document.getElementById("demo8").innerHTML ="twentyfourth";
-document.getElementById("imageTarget").src = "../images/05image09.jpg";
+document.getElementById("imageTarget").src = "..images/05image09.jpg";
 return;
 }
 }
