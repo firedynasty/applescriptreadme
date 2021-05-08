@@ -18,3 +18,10 @@ In rename_files:
 In stackoverflow you have https://apple.stackexchange.com/questions/402734/applescript-to-rename-file-names
 
 I wanted to add a prefix and remove a prefix from files without actually renaming the name of the file, only change the prefix.
+
+It works as a 2-step process in terminal_scripting/renaming_files
+
+Allows you to add and remove the prefix by count:
+
+![Rename](/image/rename_files.jpg)
+
