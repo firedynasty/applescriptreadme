@@ -1,0 +1,25 @@
+osascript <<EOD
+tell application "Finder"
+	set TotalNumberOfFinderWindows to (count of (every window where visible is true))
+	if TotalNumberOfFinderWindows > 1 then
+		close every window
+		make new Finder window
+		tell application "Finder" to set target of Finder window 1 to POSIX file "`pwd`"
+	else if TotalNumberOfFinderWindows = 1 then
+		tell application "System Events" to tell application process "Finder"
+			set frontmost to true
+			tell front menu bar to tell menu "File" to tell menu item "New Tab"
+				perform action "AXPress"
+			end tell
+		end tell
+		set target of Finder window 1 to POSIX file "`pwd`"
+	else
+		make new Finder window
+		tell application "Finder" to set target of Finder window 1 to POSIX file "`pwd`"
+	end if
+end tell
+EOD
+
+in bash/zsh profile:
+
+alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -e "tell application \"System Events\" to key code 9 using {command down}";osascript -e "tell application \"System Events\" to key code 36"; osascript -e "tell application \"Finder\" to activate"'
