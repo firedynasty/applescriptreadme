@@ -11,7 +11,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 
 And this is a second_repository that I have not shared to not confuse people that are shared the first repository. 
 
-----------------------------
+--------------------------------
 
 In rename_files:
 
@@ -24,4 +24,32 @@ It works as a 2-step process in terminal_scripting/renaming_files
 Allows you to add and remove the prefix by count:
 
 ![Rename](/image/rename_files.jpg)
+
+
+--------------------------------
+
+I feel a big part of using applescript is to be able to script out of terminal or else I wouldn't see a point in using it. 
+
+```
+osascript -e "tell application \"Finder\" to set target of Finder window 1 to POSIX file \"`pwd`\""
+
+```
+
+Quotations are really important.  For osascript, it can cause issues if the order of the quotations is incorrect.  ie ' ' then "" inside , but if " is escaped with \ then need to use " " for outside. 
+
+
+Piping pwd from terminal to Finder: 
+
+https://apple.stackexchange.com/questions/349348/opening-a-new-finder-tab-from-command-line/420363#420363
+
+
+Google: "POSIX file "`pwd`" mac"
+
+Proper syntax for "alias"-ing in "osascript"
+
+https://arstechnica.com/civis/viewtopic.php?f=19&t=176389
+
+
+--------------------------------
+
 
