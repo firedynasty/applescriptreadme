@@ -52,4 +52,7 @@ https://arstechnica.com/civis/viewtopic.php?f=19&t=176389
 
 --------------------------------
 
+alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -e "tell application \"System Events\" to key code 9 using {command down}";osascript -e "tell application \"System Events\" to key code 36"; osascript -e "tell application \"Finder\" to activate"'
+
+controlling key strokes and scripts
 
