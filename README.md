@@ -89,3 +89,20 @@ Here 900 is a window size setting, then opening a file into a new Tab
 
 
 https://apple.stackexchange.com/questions/300156/terminal-opens-new-tab-instead-of-new-window-with-command-n
+
+----------------------------------------------
+
+In a .scpt file to be made into an .app file
+do script "osascript -e \"tell application \\\"Finder\\\" to activate\"" in theTab
+delay 0.2
+	
+do script "osascript -e \"tell application \\\"System Events\\\" to key code 9 using {command down}\" ;osascript -e \"tell application \\\"System Events\\\" to key code 36\"" in theTab
+
+Quotations in applescript to be used by an applet
+
+https://stackoverflow.com/questions/14737414/using-double-quotes-in-applescript-command-do-shell-script-echo
+
+Hierarchy of Quotes:  " to \" to \\\"
+
+
+
