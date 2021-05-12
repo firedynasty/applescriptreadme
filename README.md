@@ -56,3 +56,36 @@ alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -
 
 controlling key strokes and scripts
 
+--------------------------------
+
+Copying files
+If you want to take off the file from the filepath to get the folder in where the file lies:
+
+terminal_scripting/copying_files/to_dropbox copy.app
+terminal_scripting/copying_files/to_dropbox copy.scpt
+
+
+--------------------------------
+
+Finder scripting:
+
+Creating an applet then using that to open every .txt in Terminal and changing to that directory in Terminal
+
+finder_scripting/cat_file_from_terminal.scpt
+
+
+https://apple.stackexchange.com/questions/212813/open-text-file-from-finder-in-vim
+
+--------------------------------
+
+opening new tab in finder window:
+
+https://scriptingosx.com/2020/03/macos-shell-command-to-create-a-new-terminal-window/
+
+
+alias alias1='osascript -e "tell application \"Terminal\" to do script \"900\"";osascript -e "tell application \"Terminal\" to do script \"vim ~/desktop/work_.txt\" in window 1"' 
+
+Here 900 is a window size setting, then opening a file into a new Tab 
+
+
+
