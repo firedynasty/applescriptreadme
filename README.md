@@ -88,4 +88,4 @@ alias alias1='osascript -e "tell application \"Terminal\" to do script \"900\"";
 Here 900 is a window size setting, then opening a file into a new Tab 
 
 
-
+https://apple.stackexchange.com/questions/300156/terminal-opens-new-tab-instead-of-new-window-with-command-n
