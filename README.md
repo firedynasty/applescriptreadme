@@ -105,4 +105,14 @@ https://stackoverflow.com/questions/14737414/using-double-quotes-in-applescript-
 Hierarchy of Quotes:  " to \" to \\\"
 
 
+-----------------------------------
+
+
+Get the path of the front window
+
+"How To Get Path to Finder Folder or Target of Window"
+
+https://forum.latenightsw.com/t/how-to-get-path-to-finder-folder-or-target-of-window/1228
+
+tell application "Finder" to set filePath to POSIX path of (target of front window as text)
 
