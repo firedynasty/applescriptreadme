@@ -116,3 +116,22 @@ https://forum.latenightsw.com/t/how-to-get-path-to-finder-folder-or-target-of-wi
 
 tell application "Finder" to set filePath to POSIX path of (target of front window as text)
 
+----------------------------------
+
+Using functions in zsh:
+
+From:
+
+alias findhelp='osascript ~/desktop/macbook_pro_scripts/findhelp.scpt; osascript -e "tell application \"System Events\" to key code 9 using {command down}"; osascript -e "tell application \"System Events\" to key code 123"; osascript -e "tell application \"System Events\" to key code 123"' 
+
+
+To:
+
+function findhelp() {
+	find . -iname "*$@*"
+}
+
+
+https://stackoverflow.com/questions/34340575/zsh-alias-with-parameter
+
+
