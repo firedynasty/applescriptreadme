@@ -22,17 +22,6 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 7\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
 
 
-
-* 1\. [here](#here)
-    * 1.1\. text delimiters
-    * 1.2\. copy to dropbox
-        * 1.2\. item
-* 2\. item 
-
-
-
-
-
 # Droplet icloud
 
 ```applescript
