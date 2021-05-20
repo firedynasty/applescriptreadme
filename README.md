@@ -9,10 +9,10 @@ Hope you find some of this code handy!
 
 Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dropped file to icloud.  Using Terminal to do so. 
 
-* 1\. [droplet_icloud](#droplet_icloud)
+* 1\. [droplet icloud](#droplet-icloud)
     * 1.1\. text delimiters
     * 1.2\. copy to dropbox
-* 2\. [rename_files](#rename_files)
+* 2\. [rename files](#rename-files)
 * 3\. [quotations](#quotations)
 	* 3.1 the problem with ' ', " ", and quotes inside
 
@@ -28,7 +28,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 
 
 
-# Droplet_icloud
+# Droplet icloud
 
 ```applescript
 
@@ -70,7 +70,7 @@ on open Dropped_File
 end open
 ```
 
-# Rename_Files
+# Rename Files
 
 What this does here: Adding prefixes
 
