@@ -17,7 +17,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 	* 3.1 the problem with ' ', " ", and quotes inside
 * 4\. [Terminal Scripting](#terminal-scripting)
 	* 4.1\. [Pwd](#piping-pwd-from-terminal)
-* 5\. [Controlling keystrokes](#controlling-keystrokes)
+* 5\. [Controlling keystrokes](#controlling-key-strokes)
 * 6\. [Finder Applet](#finder-applet)
 
 
@@ -93,6 +93,19 @@ osascript -e "tell application \"Finder\" to set target of Finder window 1 to PO
 
 Quotations are really important.  For osascript, it can cause issues if the order of the quotations is incorrect.  ie ' ' then "" inside , but if " is escaped with \ then need to use " " for outside. 
 
+In a .scpt file to be made into an .app file
+do script "osascript -e \"tell application \\\"Finder\\\" to activate\"" in theTab
+delay 0.2
+	
+do script "osascript -e \"tell application \\\"System Events\\\" to key code 9 using {command down}\" ;osascript -e \"tell application \\\"System Events\\\" to key code 36\"" in theTab
+
+Quotations in applescript to be used by an applet
+
+https://stackoverflow.com/questions/14737414/using-double-quotes-in-applescript-command-do-shell-script-echo
+
+Hierarchy of Quotes:  " to \" to \\\"
+
+
 ## Terminal Scripting
 
 ### Piping pwd from Terminal
@@ -110,6 +123,16 @@ https://arstechnica.com/civis/viewtopic.php?f=19&t=176389
 
 
 --------------------------------
+
+
+## Get the path of the front window
+
+"How To Get Path to Finder Folder or Target of Window"
+
+https://forum.latenightsw.com/t/how-to-get-path-to-finder-folder-or-target-of-window/1228
+
+tell application "Finder" to set filePath to POSIX path of (target of front window as text)
+
 
 ## Controlling Key Strokes
 
@@ -163,49 +186,48 @@ function new() {
 > new
 // without the parameter will open a new window in the same directory
 
-----------------------------------------------
-
-In a .scpt file to be made into an .app file
-do script "osascript -e \"tell application \\\"Finder\\\" to activate\"" in theTab
-delay 0.2
-	
-do script "osascript -e \"tell application \\\"System Events\\\" to key code 9 using {command down}\" ;osascript -e \"tell application \\\"System Events\\\" to key code 36\"" in theTab
-
-Quotations in applescript to be used by an applet
-
-https://stackoverflow.com/questions/14737414/using-double-quotes-in-applescript-command-do-shell-script-echo
-
-Hierarchy of Quotes:  " to \" to \\\"
-
-
------------------------------------
-
-
-Get the path of the front window
-
-"How To Get Path to Finder Folder or Target of Window"
-
-https://forum.latenightsw.com/t/how-to-get-path-to-finder-folder-or-target-of-window/1228
-
-tell application "Finder" to set filePath to POSIX path of (target of front window as text)
-
-----------------------------------
-
-Using functions in zsh:
-
-From:
-
-alias findhelp='osascript ~/desktop/macbook_pro_scripts/findhelp.scpt; osascript -e "tell application \"System Events\" to key code 9 using {command down}"; osascript -e "tell application \"System Events\" to key code 123"; osascript -e "tell application \"System Events\" to key code 123"' 
-
-
-To:
-
-function findhelp() {
-	find . -iname "*$@*"
-}
-
-
 https://stackoverflow.com/questions/34340575/zsh-alias-with-parameter
 
 
 # Click on .jpg files to open slideshow
+
+
+```applescript
+
+on open theFiles
+	tell application "Terminal"
+		activate
+		-- If there are no open windows, open one.
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		-- changed window 1 to theTab
+		set filePath to POSIX path of item 1 of theFiles
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+		set textNumber2 to name of (info for filePath)
+		delay 0.2
+		do script "cd " & quoted form of textNumber1 in window 1
+		delay 0.2
+		do script "open -a \"Preview\" " & quoted form of textNumber1 in window 1
+		delay 0.2
+	end tell
+	delay 3
+	tell application "System Events"
+		tell process "Preview"
+			set frontmost to true
+			click menu item "Slideshow" of menu "View" of menu bar 1
+		end tell
+	end tell
+	return
+end open
+
+on run
+	--  Handle the case where the script is launched without any dropped files
+	open (choose file with multiple selections allowed)
+	return
+end run
+
+```
+
+Set this script as app and choose to run when opening .jpg files.  This will let you do slideshows of all the files in the same directory as the file that is opened.  
