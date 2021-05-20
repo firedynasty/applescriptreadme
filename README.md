@@ -19,6 +19,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 	* 4.1\. [Pwd](#piping-pwd-from-terminal)
 * 5\. [Controlling keystrokes](#controlling-key-strokes)
 * 6\. [Finder Applet](#finder-applet)
+* 7\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
 
 
 
