@@ -15,6 +15,10 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 2\. [rename files](#rename-files)
 * 3\. [quotations](#quotations)
 	* 3.1 the problem with ' ', " ", and quotes inside
+* 4\. [Terminal Scripting](#terminal-scripting)
+	* 4.1\. [Pwd](#piping-pwd-from-terminal)
+* 5\. [Controlling keystrokes](#controlling-keystrokes)
+* 6\. [Finder Applet](#finder-applet)
 
 
 
@@ -85,10 +89,13 @@ Scripting out of terminal:
 osascript -e "tell application \"Finder\" to set target of Finder window 1 to POSIX file \"`pwd`\""
 
 ```
-## Quotations
+### Quotations
 
 Quotations are really important.  For osascript, it can cause issues if the order of the quotations is incorrect.  ie ' ' then "" inside , but if " is escaped with \ then need to use " " for outside. 
 
+## Terminal Scripting
+
+### Piping pwd from Terminal
 
 Piping pwd from terminal to Finder: 
 
@@ -111,11 +118,8 @@ alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -
 
 controlling key strokes and scripts
 
---------------------------------
 
---------------------------------
-
-Finder scripting:
+# Finder Applet
 
 Creating an applet then using that to open every .txt in Terminal and changing to that directory in Terminal
 
