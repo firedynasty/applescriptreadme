@@ -9,31 +9,83 @@ Hope you find some of this code handy!
 
 Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dropped file to icloud.  Using Terminal to do so. 
 
-And this is a second_repository that I have not shared to not confuse people that are shared the first repository. 
-
---------------------------------
-
-In rename_files:
-
-In stackoverflow you have https://apple.stackexchange.com/questions/402734/applescript-to-rename-file-names
-
-I wanted to add a prefix and remove a prefix from files without actually renaming the name of the file, only change the prefix.
-
-It works as a 2-step process in terminal_scripting/renaming_files
-
-Allows you to add and remove the prefix by count:
-
-![Rename](/image/rename_files.jpg)
+* 1\. [droplet_icloud](#droplet_icloud)
+    * 1.1\. text delimiters
+    * 1.2\. copy to dropbox
+* 2\. [rename_files](#rename_files)
+* 3\. [quotations](#quotations)
+	* 3.1 the problem with ' ', " ", and quotes inside
 
 
---------------------------------
 
-I feel a big part of using applescript is to be able to script out of terminal or else I wouldn't see a point in using it. 
+* 1\. [droplet_icloud](#droplet_icloud)
+    * 1.1\. text delimiters
+    * 1.2\. copy to dropbox
+        * 1.2\. item
+* 2\. item 
+
+
+
+
+
+# Droplet_icloud
+
+```applescript
+
+on open Dropped_File
+	tell application "Finder"
+		--what I want to do is get the path, cd there
+		--then python the name of the file there
+		set strFolder to POSIX path of Dropped_File
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of strFolder as string)) + 1) of strFolder as string
+		
+		----
+		
+		set freedom to text item -1 of strFolder
+		
+		--set fileName to item of fileAlias
+	end tell
+	set text item delimiters to "/"
+	tell application "Finder"
+		--what I want to do is get the path, cd there
+		--then python the name of the file there
+		
+		
+		set freedom to text item -1 of strFolder
+		
+		--set fileName to item of fileAlias
+	end tell
+	tell application "Terminal"
+		
+		activate
+		delay 1
+		do script "cd " & textNumber1 in front window
+		delay 1
+		do script "cp " & freedom & " ~/iCloud" in front window
+		-- requires sym link change
+		-- https://michaelsoolee.com/icloud-drive-symlink/
+		
+		
+	end tell
+end open
+```
+
+# Rename Files
+
+What this does here: Adding prefixes
+
+ https://apple.stackexchange.com/questions/402734/applescript-to-rename-file-names
+
+
+![Rename](image/rename_files.jpg)
+
+Scripting out of terminal:
 
 ```
 osascript -e "tell application \"Finder\" to set target of Finder window 1 to POSIX file \"`pwd`\""
 
 ```
+# Quotations
 
 Quotations are really important.  For osascript, it can cause issues if the order of the quotations is incorrect.  ie ' ' then "" inside , but if " is escaped with \ then need to use " " for outside. 
 
@@ -57,13 +109,6 @@ alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -
 controlling key strokes and scripts
 
 --------------------------------
-
-Copying files
-If you want to take off the file from the filepath to get the folder in where the file lies:
-
-terminal_scripting/copying_files/to_dropbox copy.app
-terminal_scripting/copying_files/to_dropbox copy.scpt
-
 
 --------------------------------
 
