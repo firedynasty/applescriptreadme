@@ -125,10 +125,13 @@ Creating an applet then using that to open every .txt in Terminal and changing t
 
 finder_scripting/cat_file_from_terminal.scpt
 
-
 https://apple.stackexchange.com/questions/212813/open-text-file-from-finder-in-vim
 
+Usecase: open .txt files in the terminal
+
 --------------------------------
+
+# Zshrc Bash Functions
 
 opening new tab in finder window:
 
@@ -141,6 +144,24 @@ Here 900 is a window size setting, then opening a file into a new Tab
 
 
 https://apple.stackexchange.com/questions/300156/terminal-opens-new-tab-instead-of-new-window-with-command-n
+
+```
+
+function new() {
+    if [[ $# -eq 0 ]]; then
+        open -a "Terminal" "$PWD"
+    else
+        open -a "Terminal" "$@"
+    fi
+}
+
+```
+
+> new documents 
+// this will open a new window in the Terminal pointing to the folder documents of that directory
+
+> new
+// without the parameter will open a new window in the same directory
 
 ----------------------------------------------
 
@@ -187,3 +208,4 @@ function findhelp() {
 https://stackoverflow.com/questions/34340575/zsh-alias-with-parameter
 
 
+# Click on .jpg files to open slideshow
