@@ -18,7 +18,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 
 
 
-* 1\. [droplet_icloud](#droplet_icloud)
+* 1\. [here](#here)
     * 1.1\. text delimiters
     * 1.2\. copy to dropbox
         * 1.2\. item
@@ -85,7 +85,7 @@ Scripting out of terminal:
 osascript -e "tell application \"Finder\" to set target of Finder window 1 to POSIX file \"`pwd`\""
 
 ```
-# Quotations
+## Quotations
 
 Quotations are really important.  For osascript, it can cause issues if the order of the quotations is incorrect.  ie ' ' then "" inside , but if " is escaped with \ then need to use " " for outside. 
 
@@ -103,6 +103,9 @@ https://arstechnica.com/civis/viewtopic.php?f=19&t=176389
 
 
 --------------------------------
+
+## Controlling Key Strokes
+
 
 alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -e "tell application \"System Events\" to key code 9 using {command down}";osascript -e "tell application \"System Events\" to key code 36"; osascript -e "tell application \"Finder\" to activate"'
 
