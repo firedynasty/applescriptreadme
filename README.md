@@ -21,6 +21,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 6\. [Finder Applet](#finder-applet)
 * 7\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
 * 8\. [interesting question](#interesting-question)
+* 9\. [zshrc git scripting](#git-scripting)
 
 
 # Droplet icloud
@@ -245,3 +246,26 @@ end tell
 -- renames all files in a folder by adding a prefix starting from the number 10.
 
 ```
+
+
+# Git Scripting
+
+```bash
+
+alias first='git add .'
+alias third='git push origin master;echo "git push origin master"thir'
+alias fourth='git push origin main;echo "git push origin main"'
+function second() {
+     if [[ $# -eq 0 ]]; then
+        echo 'need parameter'
+    else
+    git commit -m "$@"
+    echo "git commit -m \"$@\""
+    fi
+}
+
+```
+
+Instead of git add . I use first , and so on:
+
+![Git Push](image/git_push.jpg)
