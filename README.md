@@ -20,6 +20,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 5\. [Controlling keystrokes](#controlling-key-strokes)
 * 6\. [Finder Applet](#finder-applet)
 * 7\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
+* 8\. [interesting question](#interesting-question)
 
 
 # Droplet icloud
@@ -221,3 +222,26 @@ end run
 ```
 
 Set this script as app and choose to run when opening .jpg files.  This will let you do slideshows of all the files in the same directory as the file that is opened.  
+
+# Interesting Question
+
+So I wanted to count from 10-20 and then 20-30 because on Terminal when I list the files they have a weird way of displaying.  If I have prefixes of 1- , 2-, 3-, 4- the 10's are displayed before 3-.  So, how do I rename files from 10-20 or 20-30 and when I googled it, Google said it didn't have a good answer for me.  Actually, the answer is to start the count from 10.
+
+```applescript
+
+tell application "Finder"
+	set source_folder to (folder of the front window)
+	set folderContents to every item of source_folder as list
+	set sortedContents to (sort folderContents by name)
+	set count_1 to 10
+	repeat with theFile in sortedContents
+		set oldName to name of theFile
+		set stringed to count_1 as string
+		set name of theFile to stringed & "-" & oldName
+		set count_1 to count_1 + 1
+	end repeat
+end tell
+
+-- renames all files in a folder by adding a prefix starting from the number 10.
+
+```
