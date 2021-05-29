@@ -22,6 +22,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 7\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
 * 8\. [interesting question](#interesting-question)
 * 9\. [zshrc git scripting](#git-scripting)
+* 10\. [progression](#progression)
 
 
 # Droplet icloud
@@ -113,6 +114,13 @@ Proper syntax for "alias"-ing in "osascript"
 
 https://arstechnica.com/civis/viewtopic.php?f=19&t=176389
 
+
+Bash scripting :
+
+To get the pwd path and put it into the clipboard with quotes:
+
+
+alias pwdcopy="pwd |sed \"s/^/\\\"/;s/$/\\\"/\" |pbcopy"
 
 --------------------------------
 
@@ -269,3 +277,23 @@ function second() {
 Instead of git add . I use first , and so on:
 
 ![Git Push](image/git_push.jpg)
+
+
+# progression
+
+```applescript
+
+		delay 0.2
+			do script ""
+			delay 0.2
+			do script "cd " & quoted form of textNumber1 in window 1
+			delay 0.2
+			do script "900" in window 1
+			delay 0.2
+			do script "cat " & quoted form of filePath & " | pbcopy" in window 1
+			delay 1.5
+			do script "osascript -e \"tell application \\\"System Events\\\" to key code 9 using {command down}\" ;osascript -e \"tell application \\\"System Events\\\" to key code 36\"" in window 1
+
+```
+
+No longer need this: right click open a file to have a tree displayed in the Terminal
