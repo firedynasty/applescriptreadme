@@ -112,6 +112,42 @@ end run
 
 ```
 
+
+To drop any file from the folder to a icon on the toolbar to get to that folder in Terminal:
+
+
+```applescript
+
+
+
+
+on open theFiles
+	tell application "Terminal"
+		activate
+		-- If there are no open windows, open one.
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		set filePath to POSIX path of item 1 of theFiles
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+		set textNumber2 to name of (info for filePath)
+		do script "cd " & quoted form of textNumber1 in theTab
+	end tell
+	return
+end open
+
+on run
+	--  Handle the case where the script is launched without any dropped files
+	open (choose file with multiple selections allowed)
+	return
+end run
+
+```
+
+
+
+
 Here I am able to create a file called back.asc, which when clicked will go back one folder
 
 ```applescript
@@ -196,37 +232,6 @@ end run
 ```
 
 
-And finally to drop any file from the folder to get that folder opened in a terminal window
-
-
-```applescript
-
-
-
-
-on open theFiles
-	tell application "Terminal"
-		activate
-		-- If there are no open windows, open one.
-		if (count of windows) is less than 1 then
-			do script ""
-		end if
-		set theTab to selected tab in first window
-		set filePath to POSIX path of item 1 of theFiles
-		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
-		set textNumber2 to name of (info for filePath)
-		do script "cd " & quoted form of textNumber1 in theTab
-	end tell
-	return
-end open
-
-on run
-	--  Handle the case where the script is launched without any dropped files
-	open (choose file with multiple selections allowed)
-	return
-end run
-
-```
 
 # Rename Files
 
