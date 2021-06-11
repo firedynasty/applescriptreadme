@@ -12,17 +12,18 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 1\. [droplet icloud](#droplet-icloud)
     * 1.1\. text delimiters
     * 1.2\. copy to dropbox
-* 2\. [rename files](#rename-files)
-* 3\. [quotations](#quotations)
+* 2\. [using_droplets](#using-droplets)
+* 3\. [rename files](#rename-files)
+* 4\. [quotations](#quotations)
 	* 3.1 the problem with ' ', " ", and quotes inside
-* 4\. [Terminal Scripting](#terminal-scripting)
+* 5\. [Terminal Scripting](#terminal-scripting)
 	* 4.1\. [Pwd](#piping-pwd-from-terminal)
-* 5\. [Controlling keystrokes](#controlling-key-strokes)
-* 6\. [Finder Applet](#finder-applet)
-* 7\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
-* 8\. [interesting question](#interesting-question)
-* 9\. [zshrc git scripting](#git-scripting)
-* 10\. [progression](#progression)
+* 6\. [Controlling keystrokes](#controlling-key-strokes)
+* 7\. [Finder Applet](#finder-applet)
+* 8\. [.jpg control](#click-on-jpg-files-to-open-slideshow)
+* 9\. [interesting question](#interesting-question)
+* 10\. [zshrc git scripting](#git-scripting)
+* 11\. [progression](#progression)
 
 
 # Droplet icloud
@@ -65,6 +66,166 @@ on open Dropped_File
 		
 	end tell
 end open
+```
+
+# Using Droplets
+
+Here I am able to drop a file and it gets moved to the open Terminal window
+
+![DropletsFinder](image/droplets_finder.jpg)
+
+
+```applescript
+on open theFiles
+	tell application "Terminal"
+		activate
+		-- If there are no open windows, open one.
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		set filePath to POSIX path of item 1 of theFiles
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+		set textNumber2 to name of (info for filePath)
+		set textNumber3 to textNumber1 & "/" & textNumber2
+		set textNumber4 to (the clipboard)
+		if textNumber2 contains "." then
+			do script "mv " & quoted form of textNumber3 & "  ." in theTab
+			--do script "cd " & textNumber4 in theTab
+			delay 0.5
+			do script ":" in theTab
+		else
+			do script "mv " & quoted form of textNumber1 & "  ." in theTab
+			--do script "cd " & textNumber4 in theTab
+			delay 0.5
+			do script ":" in theTab
+		end if
+	end tell
+	return
+end open
+
+on run
+	--  Handle the case where the script is launched without any dropped files
+	open (choose file with multiple selections allowed)
+	return
+end run
+
+```
+
+Here I am able to create a file called back.asc, which when clicked will go back one folder
+
+```applescript
+
+tell application "Finder"
+	try
+		set fileName to "_back"
+		--set fileName to the text returned of result
+		if length of fileName = 0 then
+			return 0
+		end if
+		set fileExt to ".asc"
+		set thisFolder to the target of the front window as alias
+		set newFile to fileName & fileExt
+		
+		make new file at thisFolder with properties {name:newFile, file type:"TEXT", creator type:"ttxt"}
+	on error errMsg
+		display dialog (errMsg)
+	end try
+end tell
+
+```
+
+Need to go to 'get info' (right click) to open all .asc files 
+
+
+```applescript
+
+on open theFiles
+	tell application "Terminal"
+		activate
+		-- If there are no open windows, open one.
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		-- changed window 1 to theTab
+		set filePath to POSIX path of item 1 of theFiles
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+		set textNumber2 to name of (info for filePath)
+		if textNumber2 contains "com" then
+			delay 0.2
+			do script "q" in window 1
+			delay 0.2
+			do script "cd " & quoted form of textNumber1 in window 1
+			delay 0.2
+			do script "cat " & quoted form of filePath & " | pbcopy" in window 1
+			delay 1.5
+			do script "open -a \"Google Chrome\" " & (the clipboard) in window 1
+			return
+			
+		else if textNumber2 contains "back" then
+			tell application "System Events"
+				tell process "Finder"
+					set frontmost to true
+					click menu item "Back" of menu "Go" of menu bar 1
+				end tell
+			end tell
+			return
+			
+		else
+			delay 0.2
+			do script "q" in window 1
+			delay 0.2
+			do script "cd " & quoted form of textNumber1 in window 1
+			delay 0.2
+			do script "900" in window 1
+			delay 0.2
+			do script "cat " & quoted form of filePath & " |more" in window 1
+			return
+		end if
+	end tell
+	return
+end open
+
+on run
+	--  Handle the case where the script is launched without any dropped files
+	open (choose file with multiple selections allowed)
+	return
+end run
+
+```
+
+
+And finally to drop any file from the folder to get that folder opened in a terminal window
+
+
+```applescript
+
+
+
+
+on open theFiles
+	tell application "Terminal"
+		activate
+		-- If there are no open windows, open one.
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		set filePath to POSIX path of item 1 of theFiles
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+		set textNumber2 to name of (info for filePath)
+		do script "cd " & quoted form of textNumber1 in theTab
+	end tell
+	return
+end open
+
+on run
+	--  Handle the case where the script is launched without any dropped files
+	open (choose file with multiple selections allowed)
+	return
+end run
+
 ```
 
 # Rename Files
