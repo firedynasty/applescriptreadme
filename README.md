@@ -76,39 +76,37 @@ Here I am able to drop a file and it gets moved to the open Terminal window
 
 
 ```applescript
-on open theFiles
-	tell application "Terminal"
-		activate
-		-- If there are no open windows, open one.
-		if (count of windows) is less than 1 then
-			do script ""
-		end if
-		set theTab to selected tab in first window
-		set filePath to POSIX path of item 1 of theFiles
-		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
-		set textNumber2 to name of (info for filePath)
-		set textNumber3 to textNumber1 & "/" & textNumber2
-		set textNumber4 to (the clipboard)
-		if textNumber2 contains "." then
-			do script "mv " & quoted form of textNumber3 & "  ." in theTab
-			--do script "cd " & textNumber4 in theTab
-			delay 0.5
-			do script ":" in theTab
-		else
-			do script "mv " & quoted form of textNumber1 & "  ." in theTab
-			--do script "cd " & textNumber4 in theTab
-			delay 0.5
-			do script ":" in theTab
-		end if
-	end tell
-	return
-end open
 
-on run
-	--  Handle the case where the script is launched without any dropped files
-	open (choose file with multiple selections allowed)
-	return
-end run
+on open these_items
+	repeat with i from 1 to the count of these_items
+		set this_item to item i of these_items
+		tell application "Terminal"
+			activate
+			-- If there are no open windows, open one.
+			if (count of windows) is less than 1 then
+				do script ""
+			end if
+			set theTab to selected tab in first window
+			set filePath to POSIX path of this_item
+			set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+			set textNumber2 to name of (info for filePath)
+			set textNumber3 to textNumber1 & "/" & textNumber2
+			set textNumber4 to (the clipboard)
+			if textNumber2 contains "." then
+				do script "mv " & quoted form of textNumber3 & "  ." in theTab
+				--do script "cd " & textNumber4 in theTab
+				delay 0.5
+				do script ":" in theTab
+			else
+				do script "mv " & quoted form of textNumber1 & "  ." in theTab
+				--do script "cd " & textNumber4 in theTab
+				delay 0.5
+				do script ":" in theTab
+			end if
+		end tell
+	end repeat
+	
+end open
 
 ```
 
