@@ -24,6 +24,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 9\. [interesting question](#interesting-question)
 * 10\. [zshrc git scripting](#git-scripting)
 * 11\. [progression](#progression)
+* 12\. [convert_multiple_files](#convert-multiple-files)
 
 
 # Droplet icloud
@@ -461,3 +462,66 @@ Instead of git add . I use first , and so on:
 ```
 
 No longer need this: right click open a file to have a tree displayed in the Terminal
+
+# convert multiple files
+
+
+This is in droplet form
+
+```applescript
+
+on open these_items
+	repeat with i from 1 to the count of these_items
+		set this_item to item i of these_items
+		tell application "Finder"
+			set theFilesFolder to (folder of this_item) as text
+		end tell
+		
+		tell application "Pages"
+			set theDoc to open this_item
+			
+			set theDocName to name of theDoc
+			set theName to (characters 1 thru -7 of theDocName) as text
+			export theDoc as PDF to file ((theFilesFolder & theDocName & ".pdf") as text)
+			
+			close theDoc
+			
+		end tell
+	end repeat
+end open
+
+
+```
+
+
+This is in workflow mode:
+
+*choose ask for finder items, allow for multiple selection
+
+```applescript
+
+
+on run {input, parameters}
+	
+	repeat with i from 1 to the count of input
+		set this_item to item i of input
+		tell application "Finder"
+			set theFilesFolder to (folder of this_item) as text
+		end tell
+		
+		tell application "Pages"
+			set theDoc to open this_item
+			
+			set theDocName to name of theDoc
+			set theName to (characters 1 thru -7 of theDocName) as text
+			export theDoc as PDF to file ((theFilesFolder & theDocName & ".pdf") as text)
+			
+			close theDoc
+			
+		end tell
+	end repeat
+	
+	return input
+end run
+
+```
