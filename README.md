@@ -587,7 +587,7 @@ delay 1
 tell application "Terminal"
 	set theTab to selected tab in first window
 	
-	do script "hello " & combined_ & " ." in theTab
+	do script "mv " & combined_ & " ." in theTab
 end tell
 
 
