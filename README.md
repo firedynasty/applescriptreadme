@@ -25,6 +25,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 10\. [zshrc git scripting](#git-scripting)
 * 11\. [progression](#progression)
 * 12\. [convert_multiple_files](#convert-multiple-files)
+* 13\. [blocking and trading files](#trade-block-files)
 
 
 # Droplet icloud
@@ -263,6 +264,9 @@ https://stackoverflow.com/questions/14737414/using-double-quotes-in-applescript-
 
 Hierarchy of Quotes:  " to \" to \\\"
 
+osascript -e "tell application \"Finder\" to activate"
+osascript -e "tell application \"System Events\" to key code 8"
+
 
 ## Terminal Scripting
 
@@ -302,7 +306,7 @@ tell application "Finder" to set filePath to POSIX path of (target of front wind
 ## Controlling Key Strokes
 
 
-alias target.='cat ~/desktop/macbook_pro_scripts/script.txt | pbcopy;osascript -e "tell application \"System Events\" to key code 9 using {command down}";osascript -e "tell application \"System Events\" to key code 36"; osascript -e "tell application \"Finder\" to activate"'
+alias target.='cat ~/desktop/script.txt | pbcopy;osascript -e "tell application \"System Events\" to key code 9 using {command down}";osascript -e "tell application \"System Events\" to key code 36"; osascript -e "tell application \"Finder\" to activate"'
 
 controlling key strokes and scripts
 
@@ -525,3 +529,72 @@ on run {input, parameters}
 end run
 
 ```
+
+
+# trade block files
+
+block a file in terminal.  in the next tab, write trade and the file will be transfered to the folder in that tab. 
+
+
+```zshrc
+
+alias block1="osascript ~/desktop/block_/block1.scpt"
+
+
+function block() {
+    if [[ $# -eq 0 ]]; then
+        echo 'need parameter'
+    else
+        cat /dev/null > /Users/test.txt
+        block1        
+        echo /$@ >> /Users/test.txt
+
+    fi
+}
+
+alias trade="osascript ~/desktop/block_/block3.scpt"
+
+````
+
+
+```applescript 
+
+for block1.scpt:
+
+tell application "Terminal"
+	set theTab to selected tab in first window
+	do script "cat /dev/null > /Users/test_2.txt" in theTab
+	do script "pwd >> /Users/test_2.txt" in theTab
+	delay 1
+end tell
+
+```
+
+
+```applescript
+
+for block3.scpt
+
+tell application "Terminal"
+	set theTab to selected tab in first window
+	do script "cat /Users/test_2.txt /Users/test.txt|pbcopy" in theTab
+	delay 1
+end tell
+set oldText to the clipboard
+set AppleScript's text item delimiters to {return & linefeed, return, linefeed, character id 8233, character id 8232}
+set newText to text items of oldText
+set AppleScript's text item delimiters to {""}
+set newText to newText as text
+delay 1
+set the clipboard to newText
+delay 1
+tell application "Terminal"
+	do script "mv " & newText & " ." in theTab
+end tell
+
+
+
+
+```
+
+
