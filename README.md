@@ -575,21 +575,19 @@ end tell
 
 for block3.scpt
 
+
+set newFile to ("Macintosh HD:Users:test_2.txt")
+set theFileContents to paragraphs of (read file newFile)
+set first_ to item 1 of theFileContents
+set newFile_2 to ("Macintosh HD:Users:test.txt")
+set theFileContents_2 to paragraphs of (read file newFile_2)
+set first_1 to item 1 of theFileContents_2
+set combined_ to first_ & first_1
+delay 1
 tell application "Terminal"
 	set theTab to selected tab in first window
-	do script "cat /Users/test_2.txt /Users/test.txt|pbcopy" in theTab
-	delay 1
-end tell
-set oldText to the clipboard
-set AppleScript's text item delimiters to {return & linefeed, return, linefeed, character id 8233, character id 8232}
-set newText to text items of oldText
-set AppleScript's text item delimiters to {""}
-set newText to newText as text
-delay 1
-set the clipboard to newText
-delay 1
-tell application "Terminal"
-	do script "mv " & newText & " ." in theTab
+	
+	do script "hello " & combined_ & " ." in theTab
 end tell
 
 
