@@ -26,6 +26,9 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 11\. [progression](#progression)
 * 12\. [convert_multiple_files](#convert-multiple-files)
 * 13\. [blocking and trading files](#trade-block-files)
+* 14\. [delimiter and looping array](#delimiter-and-looping-array)
+* 15\. [might improve](#might-improve)
+* 16\. [resource](#resource)
 
 
 # Droplet icloud
@@ -591,8 +594,85 @@ tell application "Terminal"
 end tell
 
 
+set newFile to ("Macintosh HD:Users:stanleytan:Desktop:macbook_pro_scripts:echo_files:test_2.txt")
+set theFileContents to paragraphs of (read file newFile)
+set first_ to item 1 of theFileContents
+set newFile_2 to ("Macintosh HD:Users:stanleytan:Desktop:macbook_pro_scripts:echo_files:test.txt")
+set theFileContents_2 to paragraphs of (read file newFile_2)
+set first_1 to item 1 of theFileContents_2
+set combined_ to first_ & first_1
+delay 1
+tell application "Terminal"
+	set theTab to selected tab in first window
+	
+	do script "mv " & quoted form of combined_ & " ." in theTab
+end tell
 
 
 ```
 
+
+# delimiter and looping array
+
+```applescript
+
+
+set myTestString to (the clipboard)
+
+set myArray to my theSplit(myTestString, ";")
+
+on theSplit(theString, theDelimiter)
+	-- save delimiters to restore old settings
+	set oldDelimiters to AppleScript's text item delimiters
+	-- set delimiters to delimiter to be used
+	set AppleScript's text item delimiters to theDelimiter
+	-- create the array
+	set theArray to every text item of theString
+	-- restore the old setting
+	set AppleScript's text item delimiters to oldDelimiters
+	-- return the result
+	return theArray
+end theSplit
+
+repeat with theItem in myArray
+	tell application "Terminal"
+		do script "open -a \"Google Chrome\" " & theItem in window 1
+		delay 2
+	end tell
+end repeat
+
+
+-- a more condensed usable function 
+
+set myTestString to (the clipboard)
+
+
+
+set oldDelimiters to AppleScript's text item delimiters
+set AppleScript's text item delimiters to ";"
+set myArray to every text item of myTestString
+set AppleScript's text item delimiters to oldDelimiters
+
+return myArray
+
+https://erikslab.com/2007/08/31/applescript-how-to-split-a-string/
+
+https://alvinalexander.com/apple/applescript-list-iterate-items-for-loop-mac/
+```
+
+# might improve 
+
+
+```applescript
+
+looping a split list to create new variables for each
+
+https://stackoverflow.com/questions/51395110/split-query-into-two-arguments-using-delimiter-space-applescript
+
+
+```
+
+# resource
+
+https://gist.github.com/nayanseth/c18931e0777579467a12
 
