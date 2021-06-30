@@ -657,7 +657,82 @@ return myArray
 
 https://erikslab.com/2007/08/31/applescript-how-to-split-a-string/
 
-https://alvinalexander.com/apple/applescript-list-iterate-items-for-loop-mac/
+https://alvinalexander.com/apple/applescript-list-iterate-items-for-loop-mac/\
+
+
+using this with bash
+
+on open theFiles
+	tell application "Terminal"
+		activate
+		-- If there are no open windows, open one.
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		-- changed window 1 to theTab
+		set filePath to POSIX path of item 1 of theFiles
+		set textNumber1 to characters 1 thru -((offset of "/" in (reverse of items of filePath as string)) + 1) of filePath as string
+		set textNumber2 to name of (info for filePath)
+		if textNumber2 contains "local" then
+			delay 0.2
+			do script "vim " & quoted form of filePath in window 1
+			delay 0.2
+			do script "/Users" in window 1
+			delay 0.5
+			do script "yy" in window 1
+			delay 0.5
+			do script ":q" in window 1
+			delay 0.5
+			set myTestString to (the clipboard)
+			
+			set oldDelimiters to AppleScript's text item delimiters
+			set AppleScript's text item delimiters to ";"
+			set myArray to every text item of myTestString
+			set AppleScript's text item delimiters to oldDelimiters
+			
+			repeat with theItem in myArray
+				tell application "Terminal"
+					do script "u" & theItem in window 1
+					delay 2
+				end tell
+			end repeat
+			return
+		else
+			delay 0.2
+			do script "vim " & quoted form of filePath in window 1
+			delay 0.2
+			do script "/https" in window 1
+			delay 0.5
+			do script "yy" in window 1
+			delay 0.5
+			do script ":q" in window 1
+			delay 0.5
+			set myTestString to (the clipboard)
+			
+			set oldDelimiters to AppleScript's text item delimiters
+			set AppleScript's text item delimiters to ";"
+			set myArray to every text item of myTestString
+			set AppleScript's text item delimiters to oldDelimiters
+			
+			repeat with theItem in myArray
+				tell application "Terminal"
+					do script "open -a \"Google Chrome\" " & theItem in window 1
+					delay 2
+				end tell
+			end repeat
+			return
+		end if
+		
+	end tell
+	return
+end open
+
+on run
+	--  Handle the case where the script is launched without any dropped files
+	open (choose file with multiple selections allowed)
+	return
+end run
 ```
 
 # might improve 
