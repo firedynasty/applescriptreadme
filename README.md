@@ -751,3 +751,9 @@ https://stackoverflow.com/questions/51395110/split-query-into-two-arguments-usin
 
 https://gist.github.com/nayanseth/c18931e0777579467a12
 
+
+Removing Trailing White Spaces ..
+
+
+https://macscripter.net/viewtopic.php?id=14746
+
