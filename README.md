@@ -29,6 +29,7 @@ Copy_to_icloud.scpt : this is a droplet that allows you to directly copy that dr
 * 14\. [delimiter and looping array](#delimiter-and-looping-array)
 * 15\. [might improve](#might-improve)
 * 16\. [resource](#resource)
+* 17\. [writing to files](#writing-to-files)
 
 
 # Droplet icloud
@@ -260,6 +261,13 @@ do script "osascript -e \"tell application \\\"Finder\\\" to activate\"" in theT
 delay 0.2
 	
 do script "osascript -e \"tell application \\\"System Events\\\" to key code 9 using {command down}\" ;osascript -e \"tell application \\\"System Events\\\" to key code 36\"" in theTab
+
+
+do script "find . -type d -exec sh -c \"find \\\"{}\\\" -maxdepth 1 -type f -iname \\\"*.png\\\" -o -iname \\\"*.jpg\\\" ! -iname \\\"*.DS_Store\\\" | sort | head -n 1\" \";\" > /Users/stanleytan/desktop/macbook_pro_scripts/findhelp_txt/secondary_test.txt" in window 1 
+
+in applescript
+
+
 
 Quotations in applescript to be used by an applet
 
@@ -756,4 +764,35 @@ Removing Trailing White Spaces ..
 
 
 https://macscripter.net/viewtopic.php?id=14746
+
+# writing to files
+
+```applescript
+set this_story to "Once upon a time in Silicon Valley...not"
+set theFile to POSIX file "/Users/username/Desktop/macbook_pro_scripts/echo_files/open_test.txt"
+
+
+-- Open the file for writing
+set theOpenedFile to open for access file theFile with write permission
+
+-- Clear the file if content should be overwritten
+set eof of theOpenedFile to 0
+
+-- Write the new content to the file
+write this_story to theOpenedFile starting at eof
+
+-- Close the file
+close access theFile
+-- Return a boolean indicating that writing was successful
+```
+
+
+https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/ReadandWriteFiles.html
+
+https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/ReferenceFilesandFolders.html
+
+
+# creating verification to continue with script
+
+https://www.dropbox.com/s/sli3wg49cdt0sy5/1-set_as_number.jpg?dl=0
 
